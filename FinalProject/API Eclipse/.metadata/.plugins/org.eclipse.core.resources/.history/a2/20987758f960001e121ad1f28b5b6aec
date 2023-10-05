@@ -1,0 +1,43 @@
+package elev.tec.dk;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class AnalyzeRequest {
+	
+	MatchEnum match;
+	int id;
+	
+	public MatchEnum getMatch() {
+		return match;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public AnalyzeRequest(String pathInfo) {
+		
+		Matcher matcher = Pattern.compile("/People/([0-9]+)").matcher(pathInfo);
+		
+		if (matcher.find()) {
+			match = MatchEnum.MatchPeopleId;
+			id = Integer.parseInt(matcher.group(1));
+		}
+		
+		else {
+			
+			matcher = Pattern.compile("/People").matcher(pathInfo);
+			
+			if (matcher.find()) {
+				match = MatchEnum.MatchPeople;
+			}
+			
+			else {
+				match = MatchEnum.MatchNo;
+			}
+		}
+	}
+}

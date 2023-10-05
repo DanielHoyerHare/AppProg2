@@ -1,0 +1,14 @@
+package elev.tec.dk;
+
+public class HairColor {
+	
+	int Id;
+	String Color;
+	
+	public HairColor(String color) {
+		super();
+		Color = color;
+	}
+	
+	
+}

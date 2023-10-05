@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/mnuF"
+        android:title="Flemming"/>
+    <item android:id="@+id/mnuJ"
+        android:title="Jan"/>
+    <item android:id="@+id/mnuH"
+        android:title="Henrik"
+        app:showAsAction="withText"/>
+</menu>

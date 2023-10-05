@@ -1,0 +1,108 @@
+package elev.tec.dk;
+
+public class People {
+	
+	int Id;
+	String Name;
+	String Tel;
+	String Address;
+	String Note;
+	Boolean Fav;
+	int HairColorId;
+	String HairColor;
+	int ProgLangId;
+	String ProgLang;
+	
+	
+	public People() {}
+	
+	public People(String name, String tel, String address, String note, Boolean fav, int hairColorId,
+			int progLangId) {
+		super();
+		Name = name;
+		Tel = tel;
+		Address = address;
+		Note = note;
+		Fav = fav;
+		HairColorId = hairColorId;
+		ProgLangId = progLangId;
+	}
+
+	public People(int id, String name, String tel, String address, String note, Boolean fav, int hairColorId,
+			int progLangId) {
+		super();
+		Id = id;
+		Name = name;
+		Tel = tel;
+		Address = address;
+		Note = note;
+		Fav = fav;
+		HairColorId = hairColorId;
+		ProgLangId = progLangId;
+	}
+	
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		this.Id = id;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		this.Name = name;
+	}
+
+	public String getTel() {
+		return Tel;
+	}
+
+	public void setTel(String tel) {
+		this.Tel = tel;
+	}
+
+	public String getAddress() {
+		return Address;
+	}
+
+	public void setAddress(String address) {
+		this.Address = address;
+	}
+
+	public String getNote() {
+		return Note;
+	}
+
+	public void setNote(String note) {
+		this.Note = note;
+	}
+
+	public Boolean getFav() {
+		return Fav;
+	}
+
+	public void setFav(Boolean fav) {
+		this.Fav = fav;
+	}
+
+	public int getHairColor() {
+		return HairColorId;
+	}
+
+	public void setHairColor(int hairColorId) {
+		this.HairColorId = hairColorId;
+	}
+
+	public int getProgLang() {
+		return ProgLangId;
+	}
+
+	public void setProgLang(int progLangId) {
+		this.ProgLangId = progLangId;
+	}
+}

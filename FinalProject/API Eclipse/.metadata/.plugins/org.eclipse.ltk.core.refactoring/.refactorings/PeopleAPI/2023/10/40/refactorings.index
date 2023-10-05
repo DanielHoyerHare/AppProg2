@@ -1,0 +1,19 @@
+1696229295158	Delete element
+1696229311345	Rename resource 'example2'
+1696229348890	Rename resource 'com'
+1696229353833	Rename resource 'example'
+1696229361493	Rename resource 'api'
+1696229846481	Rename type 'Frugt'
+1696230161656	Rename package 'elev.tec.dk.People'
+1696230629373	Delete element
+1696230659550	Rename package 'elev.tec.dk.PeopleAPI'
+1696237847786	Copy compilation unit
+1696237893519	Rename field 'Color'
+1696241203160	Rename method 'updatePeopleById'
+1696241889571	Rename method 'updatePeople'
+1696314081997	Rename field 'HairColor'
+1696314107624	Rename local variable 'progLang'
+1696314113837	Rename local variable 'progLang'
+1696314123029	Rename field 'ProgLang'
+1696317060750	Rename field 'HairColorId'
+1696317066827	Rename field 'ProgLangId'

@@ -1,0 +1,118 @@
+package elev.tec.dk.PeopleAPI;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
+import elev.tec.dk.AnalyzeRequest;
+import elev.tec.dk.DBTools;
+import elev.tec.dk.HairColor;
+import elev.tec.dk.People;
+import elev.tec.dk.ProgLang;
+
+/**
+ * Servlet implementation class Api
+ */
+@WebServlet("/Api")
+public class Api extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	DBTools db = new DBTools();
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		AnalyzeRequest analyze = new AnalyzeRequest(request.getPathInfo());
+		
+		ObjectMapper mapper = new ObjectMapper();
+
+		switch(analyze.getMatch()) {
+			case MatchPeopleId:
+				People p = db.getPeopleById(analyze.getId());
+				out.write(mapper.writeValueAsString(p));
+				break;
+			case MatchPeople:
+				ArrayList<People> pList = db.getAllPeople();
+				out.write(mapper.writeValueAsString(pList));
+				break;
+			case MatchHairColorId:
+				HairColor hc = db.getHairColorById(analyze.getId());
+				out.write(mapper.writeValueAsString(hc));
+				break;
+			case MatchHairColor:
+				ArrayList<HairColor> hcList = db.getAllHairColor();
+				out.write(mapper.writeValueAsString(hcList));
+				break;
+			case MatchProgLangId:
+				ProgLang pl = db.getProgLangById(analyze.getId());
+				out.write(mapper.writeValueAsString(pl));
+				break;
+			case MatchProgLang:
+				ArrayList<ProgLang> plList = db.getProgLangColor();
+				out.write(mapper.writeValueAsString(plList));
+				break;
+			case MatchNo:
+				break;
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		AnalyzeRequest analyze = new AnalyzeRequest(request.getPathInfo());
+		
+		ObjectMapper mapper = new ObjectMapper();
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String requestJSON = request.getReader().readLine();
+		
+		PrintWriter out = response.getWriter();
+		
+		AnalyzeRequest analyze = new AnalyzeRequest(request.getPathInfo());
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		switch(analyze.getMatch()) {
+			case MatchPeopleId:
+				People p = mapper.readValue(requestJSON, People.class);
+				p = db.updatePeople(p);
+				out.write(mapper.writeValueAsString(p));
+				break;
+			case MatchPeople:
+				break;
+			case MatchHairColorId:
+				break;
+			case MatchHairColor:
+				break;
+			case MatchProgLangId:
+				break;
+			case MatchProgLang:
+				break;
+			case MatchNo:
+				break;
+		}
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		AnalyzeRequest analyze = new AnalyzeRequest(request.getPathInfo());
+		
+		ObjectMapper mapper = new ObjectMapper();
+	}
+
+}
